@@ -1,0 +1,48 @@
+/* incase this page is empty, copy code from csscode1.txt file */
+
+/*its affecting in hrr project please select contract type header if u changed smt on here it will affect most of them.*/
+p {
+  margin-bottom: 0px;
+  font-size: 15px;
+  color: #777; }
+/*its affecting of header h2 type color and apperance examle sign up header*/
+h2 {
+  line-height: 1.66;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  color: #222;
+  font-family: Poppins;
+  font-size: 36px; }
+
+/*its clearing left and right side of if have <div> (two seperated box)its preventing mixing */
+.clear {
+  clear: both; }
+/*its for body apperance we can arrange whole details from here*/
+body {
+  font-size: 13px;
+  width: 100%;
+  height: 100%;
+  line-height: 1.8;
+  color: #222;
+  background: #f6eaf3;
+  font-weight: 400;
+  font-family: Poppins; }
+/*this is for boxes in register page */
+.container {
+  width: 900px;
+  background: #fbc3b5;
+  margin: 0 auto;
+  border-radius: 20px;
+ }
+
+
+ /*its for user inputs we can arrange from here color of lines  */
+input {
+  width: 100%;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #270433;
+  padding: 6px 30px;
+  font-family: Poppins;
+  box-sizing: border-box; }

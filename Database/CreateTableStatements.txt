@@ -1,0 +1,114 @@
+CREATE DATABASE findjobApp;
+ use findjobApp;
+
+CREATE TABLE End_user (
+ username varchar(30), 
+ password varchar(30) not null, 
+ firstName varchar(30) not null,
+ lastName varchar(30) not null,
+ military_service_status varchar(50), 
+PRIMARY KEY(username) 
+);
+
+CREATE TABLE End_user_email (
+username varchar(30), 
+email varchar(80),
+PRIMARY KEY(username,email),
+constraint fk1 FOREIGN KEY(username) references End_user(username)
+);
+
+CREATE TABLE HRR( 
+username varchar(30) , 
+end_user_username varchar(30),
+ password varchar(30) not null, 
+ firstName varchar(30) not null, 
+ lastName varchar(30) not null,
+PRIMARY KEY (username),
+constraint fk2 FOREIGN KEY(end_user_username) references End_user(username) 
+);
+
+CREATE TABLE Employment_History (
+username varchar(30),
+CID int, 
+startdate date , 
+enddate date not null, 
+position varchar(50),
+duration int as ( timestampdiff(DAY,startdate, enddate)),
+PRIMARY KEY(username,CID,startdate)
+);
+
+CREATE TABLE Company (
+ CID int, 
+ name varchar(100) not null, 
+ address varchar(100) ,
+ phone int ,
+PRIMARY KEY(CID) 
+);
+
+ALTER TABLE Employment_History 
+add constraint fk3 FOREIGN KEY(CID) references Company(CID);
+
+CREATE TABLE Job_posting ( 
+JID int, 
+descr varchar(200),
+ salary int ,
+ phone int ,
+is_manORintern varchar(50), 
+contract_type varchar(50) not null, 
+openingDate date, 
+duration int, 
+CID int not null, 
+HRR_username varchar(30) not null,
+city varchar(50),
+PRIMARY KEY(JID),
+constraint fk4 FOREIGN KEY(CID) references Company(CID),
+constraint fk5 FOREIGN KEY(HRR_username) references HRR(username)
+);
+
+CREATE TABLE Application (
+ JID int ,
+ username varchar(30),
+ dateApplied date , resume varchar(200),
+ univ varchar(100), program varchar(50),
+ gpa real,
+ standing int ,numDays int ,
+PRIMARY KEY(JID,username),
+constraint fk6 FOREIGN KEY(JID) references Job_posting(JID),
+constraint fk7 FOREIGN KEY ( username) references End_user(username)
+);
+CREATE TABLE ManagerJobPosting (
+JID int, 
+deptname varchar(100),
+deptsize int,
+contract_type varchar(50) not null,
+PRIMARY KEY(JID),
+constraint fk8 FOREIGN KEY(JID) references Job_posting(JID) ,
+check (contract_type = "Full Time")
+);
+
+CREATE TABLE EndUser_Employer (
+CID int , 
+username varchar(30) not null ,
+startdate  date,
+PRIMARY KEY (CID,username),
+constraint fk9 FOREIGN KEY(CID) references Company(CID),
+constraint fk10 FOREIGN KEY(username ) references End_user(username)
+);
+
+CREATE TABLE Courses_for_Internship (
+CIAID int,
+JID int not null, 
+userName varchar(30) not null,
+course varchar(50),
+PRIMARY KEY(CIAID),
+constraint fk11 FOREIGN KEY(JID) references Job_posting(JID) ,
+constraint fk12 FOREIGN KEY(userName ) references End_user(username)
+);
+
+CREATE TABLE IntershipJobPosting (
+JID int , 
+miniumDays int,
+PRIMARY KEY(JID),
+constraint fk13 FOREIGN KEY(JID) references Job_posting(JID) 
+);
+

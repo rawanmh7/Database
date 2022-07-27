@@ -1,0 +1,26 @@
+body { /*body adjustments*/
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background: #000; /* sets background to black*/
+        background-color:hsla(0, 100%, 70%, 0.3);
+}
+
+
+	a:link, a:visited {
+ 	/* adjustments for visited links*/
+ 	 color: red;
+ 	 padding: 10px 20px; /*for space*/
+ 	 text-align: center;
+ 	 text-decoration: none; /*removes underline from links*/
+         
+ 	 display: inline-block;
+	}
+
+	a:hover, a:active ,.box:hover {
+            /*when the mouse is over the link and when the link is selected adjustments*/ 
+	  background-color: pink;
+	  color: white;
+	}
+        

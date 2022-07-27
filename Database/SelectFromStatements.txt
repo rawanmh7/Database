@@ -1,0 +1,74 @@
+-- 1
+select end_user.lastName
+from end_user 
+where end_user.username not in ( select enduser_employer.username
+from enduser_employer);
+
+-- 2
+select count(*)
+from hrr h , end_user e
+where h.end_user_username = e.username;
+
+-- 3
+select c.CID, c.name
+from company c, job_posting j 
+where c.CID = j.CID and j.salary = all ( select max(salary)
+from job_posting) ;
+
+-- 4
+select e.username, e.firstName , e.lastName
+from end_user e , enduser_employer x
+where e.username = x.username
+and startdate = ( select min(startdate)
+from enduser_employer y);
+
+-- 5
+select distinct h.firstName , h.lastName 
+from hrr h , job_posting j
+where j.HRR_username = h.username and j.CID = 102;
+
+-- 6
+select count(*) as numEnduserApplied 
+from application
+where JID = 1570;
+
+-- 7
+select count(*)
+from application where username = "malak24";
+
+-- 8
+select emp.username
+from employment_history emp 
+where emp.duration = all (select max(duration)
+from employment_history );
+
+-- 9
+select * 
+from job_posting j
+where j.salary = all( select max(salary)
+from job_posting );
+
+-- 10 
+select e.username , count(jid) as ApplicationNo
+from end_user e left join application a on e.username = a.username
+group by e.username 
+order by ApplicationNO desc;
+
+-- 11
+select * 
+from job_posting
+where city = "Bodrum" and contract_type = "part time" and openingdate = '2021-07-01';
+
+-- 12
+select * 
+from managerjobposting m , job_posting j
+where m.JID = j.JID and m.deptsize < 50 and 
+j.salary = all (select max(j2.salary ) from job_posting j2 
+where j2.is_manORintern = "Manager" ); 
+
+-- 13
+select * 
+from intershipjobposting i , job_posting j
+where i.JID = j.JID and i.miniumDays > 20 and j.CID = 105;
+
+

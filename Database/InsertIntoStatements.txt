@@ -1,0 +1,151 @@
+insert into end_user( username , password, firstName ,lastName ,military_service_status) 
+values  ("mayaemad","maya1245","Maya","Emad","exempted"),
+("johnsmith7","12345abc","John","Smith","completed"),
+("omar13","123abcd","Omar","Hakeem","completed"),
+("yasirrwd","rwd541","Yasir","Rawad","completed"),
+("rolaasd","asd2525","Rola","Asad","exempted"),
+("malak24","mm4554","Malak","Ibrahim","exempted"),
+("khalidpro","kld12abc","Khalid","Sanoubr","delayed"),
+("alikm20","alixx2021","Ali","Kamal","delayed"),
+("ahmedib14","hsn142021","Ahmed","Ibrahim","delayed"),
+("reemq710","abc123","Reem","Qaffas","exempted"),
+("rayan1212","habcd2021","Rayan","Yusuf","completed"),
+("asmaslh","asma9","Asma","Saleh","exempted"),
+("mhakeem","mjh2021","Mohamed","Hakeem","delayed"),
+("yusufzyd","123aaa","Yusuf","Zyad","completed"),
+("judyomar","jom2021","Judy","Omar","exempted"),
+("maisah","mab10","Mais","Ahmed","exempted"),
+("waseemali","abcxyz","Waseem","Ali","delayed");
+
+insert into end_user_email 
+values ("mayaemad","mayaem@gmail.com"),
+("johnsmith7","jsmith@hotmail.com"),
+("omar13","omh@gmail.com"),
+("yasirrwd","rwd@hotmail.com"),
+("rolaasd","rolaasd7@gmail.com"),
+("malak24","malakib@hotmail.com"),
+("khalidpro","khsnb12@gmail.com"),
+("alikm20","alikm2021@hotmail.com"),
+("ahmedib14","ahmedib142@gmail.com"),
+("reemq710","reemqfs@hotmail.com"),
+("rayan1212","rayyf@gmail.com"),
+("asmaslh","asm9@gmail.com"),
+("mhakeem","mjh@hotmail.com"),
+("yusufzyd","yzyad@gmail.com"),
+("judyomar","judyom@hotmail.com"),
+("maisah","queenmais@gmail.com"),
+("waseemali","waseemali@gmail.com");
+
+insert into HRR(username ,end_user_username ,password ,firstName ,lastName )
+values ("mayaaemad","mayaemad","mayaemad12","Maya","Emad"),
+("yasirrawad","yasirrwd","ys1212","Yasir","Rawad"),
+("omarhkm","omar13","ommo4545","Omar","Hakeem"),
+("ammarjamal",null,"ammar2021","Ammar","Jamal"),
+("alikamal","alikm20","alxxx","Ali","Kamal"),
+("reemqafas","reemq710","reemqfs12","Reem","Qaffas"),
+("johnsmith","johnsmith7","jsmith7","John","Smith"),
+("rayanyusuf","rayan1212","rn2021","Rayan","Yusuf");
+
+insert into company 
+values (100,"The Horizon","Frankurt,Germany",05648215),
+(101,"SADAFCO","Al Nakheel Jeddah",05612478),
+(102,"Yaf Pro","92 foux Paris",457851),
+(103,"Gardina Law firm","Sultan Suleyman Cd.Bodrum",0547854),
+(104, "Pacific Ocean","12 yz California",0047581),
+(105,"Murjan 105","Murjan Dubai",1578542);
+
+insert into employment_history(username ,CID,startdate ,enddate , position )
+values ("khalidpro",102,'2020-01-15','2021-04-15',"Accoutant"),
+("malak24",100,'2019-11-04','2021-02-04',"Customer service representative"),
+("ahmedib14",101,'2015-05-01','2021-05-01',"Sales representative"),
+("rolaasd",104,'2018-10-10','2020-10-10',"Software Developer"),
+("asmaslh",103,'2014-04-04','2019-04-04',"Tax specialist");
+
+insert into Job_posting (JID ,descr,salary,phone , is_manORintern , contract_type ,openingDate , duration , CID ,HRR_username ,city )
+values (1550,"a sales manager position",4500,0564102,"Manager","Full Time",'2021-04-01',60,101,"ammarjamal","Jeddah"),
+(1560,"an office assistant position",3000,015427,null,"Full Time",'2021-01-01',180,102,"reemqafas","Paris"),
+(1570,"a tax manager position",2600,0014527,"Manager","Full Time",'2021-05-15',40,100,"yasirrawad","Frankfurt"),
+(1580, "Lawyer intern position",1000,05341247,"Intern","Part Time",'2021-03-01',180,103,'alikamal',"Bodrum"),
+(1590,"A social media manager",3000,1245756,"Manager","Full Time",'2021-05-12',30,104,"mayaaemad","California"),
+(1600,"Fraud Prevention manager" ,5000,05647851,"Manager","Full Time",'2021-04-15',130,104,"johnsmith","California"),
+(1610,"An IT manager",4500,124575,"Manager","Full Time",'2021-01-01',200,105,"omarhkm","Dubai"),
+(1620,"An Electrical Maintenance Technician intern pos. " , 2000,123452,"Intern","Part Time",'2021-06-01',200,101,"omarhkm","Jeddah"),
+(1630,"Mechanical Eng. intern pos." ,2000,154247,"Intern","Part Time",'2021-06-15',30,105,"yasirrawad","Dubai"),
+(1640,"Full stack developer intern pos.",1500,45785,"Intern","Part Time",'2021-04-05',30,104,"rayanyusuf","California"),
+(1650,"Full stack developer intern position at Yaf pro" ,1500,15475,"Intern","Part Time",'2021-01-01',30,102,"reemqafas","Paris"),
+(1660,"Full stack developer" ,4000,578452,null,"Part Time",'2021-01-01',60,102,"reemqafas","Paris"),
+(1670,"Chief Financial Officer position",5000,157884,"Manager","Full Time",'2021-05-15',30,100,"yasirrawad","Frankfurt");
+
+insert into ManagerJobPosting 
+values (1550,"Sales",10,"Full Time"),
+(1570,"Tax",5,"Full Time"),
+(1590,"Social Media",20,"Full Time"),
+(1600,"Security",20,"Full Time"),
+(1610,"IT",15,"Full Time"),
+(1670,"Finance",10,"Full Time");
+
+insert into IntershipJobPosting
+values (1580,30),
+(1620,20),
+(1630,30),
+(1640,20),
+(1650,20);
+
+insert into EndUser_Employer ( CID ,username ,startdate) 
+values (100,"mayaemad",'2018-01-01'),
+(104,"mayaemad",'2019-01-01'), 
+(101, "omar13",'2020-12-01'), 
+(105, "omar13",'2019-12-01'), 
+(100, "yasirrwd",'2020-02-01'), 
+(105, "yasirrwd",'2020-05-01'),
+(102,"reemq710",'2021-01-01'), 
+(103,"alikm20",'2020-01-01'), 
+(104,"rayan1212",'2020,-05-05'),
+(104,"johnsmith7",'2019-10-01');
+
+insert into Application (JID ,username ,dateApplied  , resume, univ, program , gpa , standing  ,numDays)
+values (1640, "mhakeem",'2021-04-10',"An enthusiastic and hard working student looking for internship","abc university","Software engineering",3.4,3,20),
+(1560,"khalidpro",'2021-02-01',"An experienced accountant graduate looking forward to this job.",null,null,null,null,null),
+(1560,"malak24",'2021-01-15',"Graduated with a bachelor degree in management looking forward to this job",null,null,null,null,null),
+(1570,"khalidpro",'2021-05-20',"An experienced accountant graduate looking forward to this job",null,null,null,null,null),
+(1590,"malak24",'2021-05-13',"Graduated with a bachelor degree in management looking forward to this job",null,null,null,null,null),
+(1550,"ahmedib14",'2021-04-15',"Graduated with a bachelor of science in business and management looking forward to this job",null,null,null,null,null),
+(1660,"rolaasd",'2021-01-03',"An experienced software developer looking forward to this job",null,null,null,null,null),
+(1570,"asmaslh",'2021-05-30',"Graduated with bachelor finance degree looking forward to this job",null,null,null,null,null),
+(1630,"yusufzyd",'2021-06-20',"A mechanical engineering student looking for internship","xyz university","Mechanical Enineering",3.8,5,30),
+(1620,"maisah",'2021-06-05',"An electrical engineering student at abc university looking for internship","abc university","Electrical eng.",3.0,10,20),
+(1650,"waseemali",'2021-01-02',"Computer science student looking for a internship","xyz university","Computer Science",3.2,9,20),
+(1640,"waseemali",'2021-04-11',"Computer science student looking for a internship","xyz university","Computer Science",3.2,9,20),
+(1580,"judyomar",'2021-03-03',"A student studying law at reef oman university looking for internship","Reef Oman","Law",3.5,15,30),
+(1610,"rolaasd",'2021-01-03',"An experienced software developer looking forward to this job",null,null,null,null,null);
+
+
+insert into Courses_for_Internship (CIAID , JID , userName, course)
+values (1,1640, "mhakeem","Web design"),
+(2,1630,"yusufzyd","Robotics"),
+(3,1620,"maisah","Electronic System Design"),
+(4,1650,"waseemali","Web design"),
+(5,1640,"waseemali","Web design"),
+(6,1580,"judyomar","Human rights");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

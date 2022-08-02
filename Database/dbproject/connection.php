@@ -3,7 +3,7 @@
         // connect to MySQL 
 	$server="localhost";
 	$username="root";
-	$password="Rawansoft5686";
+	$password="";
 	$db="jobfindingapp";
 	
 	$con=mysqli_connect($server,$username,$password,$db);
